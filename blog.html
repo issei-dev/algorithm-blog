@@ -1,0 +1,404 @@
+<!-- File: blog.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | 株式会社AlgorithM</title>
+<meta name="description" content="株式会社AlgorithMのブログ。商品アップデート情報、社員紹介、社内イベントなどをお届けします。">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/blog.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo">AlgorithM</a>
+    <nav class="global-nav">
+      <ul>
+        <li><a href="algodesk.html">Product</a></li>
+        <li><a href="company.html">Company</a></li>
+        <li><a href="members.html">Team</a></li>
+        <li><a href="blog.html" class="is-current">Blog</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="blog-hero">
+  <div class="container">
+    <p class="eyebrow">// BLOG</p>
+    <h1 class="blog-hero__title">
+      Stories from<br>
+      <span class="gradient-text">the Algorithm.</span>
+    </h1>
+    <p class="blog-hero__lead">
+      プロダクトのアップデート、メンバーの声、社内のできごと。<br>
+      AlgorithMの「いま」を綴る場所です。
+    </p>
+  </div>
+</section>
+
+<!-- ===== Filter / Tags ===== -->
+<section class="blog-filter">
+  <div class="container">
+    <div class="filter-wrap">
+      <div class="filter-group">
+        <span class="filter-label">CATEGORY</span>
+        <div class="tag-list" id="categoryTags">
+          <button class="tag is-active" data-filter="all">All</button>
+          <button class="tag" data-filter="product">Product Update</button>
+          <button class="tag" data-filter="member">Member</button>
+          <button class="tag" data-filter="event">Event</button>
+          <button class="tag" data-filter="tech">Tech</button>
+          <button class="tag" data-filter="culture">Culture</button>
+        </div>
+      </div>
+      <div class="filter-search">
+        <input type="search" id="searchInput" placeholder="記事を検索..." aria-label="記事を検索">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Featured Article ===== -->
+<section class="featured-section">
+  <div class="container">
+    <article class="featured-card" data-category="product">
+      <a href="#" class="featured-card__link">
+        <div class="featured-card__media">
+          <div class="image-grid image-grid--featured">
+            <div class="img-box img-box--main" style="background-image:linear-gradient(135deg,#7C3AED,#00E5FF);">
+              <span class="img-placeholder">Featured Image</span>
+            </div>
+          </div>
+        </div>
+        <div class="featured-card__body">
+          <div class="meta-row">
+            <span class="badge badge--featured">★ Featured</span>
+            <span class="badge badge--category">Product Update</span>
+            <time datetime="2026-05-15">2026.05.15</time>
+          </div>
+          <h2 class="featured-card__title">
+            AlgoDesk v2.0 リリース — 画像認識Q&A と多言語対応が登場
+          </h2>
+          <p class="featured-card__excerpt">
+            お客様からの要望が最も多かった「スクリーンショットを送るだけでAIが回答する」機能と、5言語対応がついにリリースされました。本記事ではアップデートの詳細と活用シーンを解説します。
+          </p>
+          <div class="author-row">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <p class="author-name">Tanaka Taro</p>
+              <p class="author-role">Founder & CEO</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+</section>
+
+<!-- ===== Article List ===== -->
+<section class="article-section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Latest Articles</h2>
+      <p class="section-count"><span id="articleCount">8</span> articles</p>
+    </div>
+
+    <div class="article-grid" id="articleGrid">
+
+      <!-- Card 1 -->
+      <article class="article-card" data-category="product" data-tags="algodesk,release,ai">
+        <a href="#" class="article-card__link">
+          <div class="article-card__media">
+            <div class="image-grid">
+              <div class="img-box" style="background:linear-gradient(135deg,#00E5FF,#7C3AED);">
+                <span class="img-placeholder">IMG</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-card__body">
+            <div class="meta-row">
+              <span class="badge badge--category">Product Update</span>
+              <time datetime="2026-05-10">2026.05.10</time>
+            </div>
+            <h3 class="article-card__title">SaaS棚卸ダッシュボードβ版を公開しました</h3>
+            <p class="article-card__excerpt">
+              企業内で利用中のSaaSを自動検出し、コストと利用状況を可視化する新機能のβ提供を開始しました。
+            </p>
+            <div class="tag-row">
+              <span class="mini-tag">#AlgoDesk</span>
+              <span class="mini-tag">#新機能</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="article-card" data-category="member" data-tags="interview,engineer">
+        <a href="#" class="article-card__link">
+          <div class="article-card__media">
+            <div class="image-grid image-grid--multi">
+              <div class="img-box" style="background:linear-gradient(135deg,#10F0A0,#00E5FF);"><span class="img-placeholder">01</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#7C3AED,#0A0E1A);"><span class="img-placeholder">02</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#00E5FF,#10F0A0);"><span class="img-placeholder">03</span></div>
+            </div>
+          </div>
+          <div class="article-card__body">
+            <div class="meta-row">
+              <span class="badge badge--category">Member</span>
+              <time datetime="2026-05-08">2026.05.08</time>
+            </div>
+            <h3 class="article-card__title">「ひとり情シスを救う」エンジニアが語るAlgoDeskの設計思想</h3>
+            <p class="article-card__excerpt">
+              バックエンドを一人で支えるエンジニアに、技術選定の裏側とAlgoDeskにかける想いを聞きました。
+            </p>
+            <div class="tag-row">
+              <span class="mini-tag">#インタビュー</span>
+              <span class="mini-tag">#エンジニア</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="article-card" data-category="event" data-tags="offsite,team">
+        <a href="#" class="article-card__link">
+          <div class="article-card__media">
+            <div class="image-grid image-grid--quad">
+              <div class="img-box" style="background:linear-gradient(135deg,#7C3AED,#00E5FF);"><span class="img-placeholder">01</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#10F0A0,#7C3AED);"><span class="img-placeholder">02</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#00E5FF,#0A0E1A);"><span class="img-placeholder">03</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#0A0E1A,#10F0A0);"><span class="img-placeholder">04</span></div>
+            </div>
+          </div>
+          <div class="article-card__body">
+            <div class="meta-row">
+              <span class="badge badge--category">Event</span>
+              <time datetime="2026-05-01">2026.05.01</time>
+            </div>
+            <h3 class="article-card__title">箱根オフサイト2026 — 3人で未来を語った2日間</h3>
+            <p class="article-card__excerpt">
+              全社員3名で箱根に集まり、向こう1年の事業戦略を膝詰めで議論。温泉とコードと笑顔のレポートをお届け。
+            </p>
+            <div class="tag-row">
+              <span class="mini-tag">#オフサイト</span>
+              <span class="mini-tag">#チームビルディング</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="article-card" data-category="tech" data-tags="rag,llm,architecture">
+        <a href="#" class="article-card__link">
+          <div class="article-card__media">
+            <div class="image-grid">
+              <div class="img-box" style="background:linear-gradient(135deg,#0A0E1A,#7C3AED);"><span class="img-placeholder">TECH</span></div>
+            </div>
+          </div>
+          <div class="article-card__body">
+            <div class="meta-row">
+              <span class="badge badge--category">Tech</span>
+              <time datetime="2026-04-25">2026.04.25</time>
+            </div>
+            <h3 class="article-card__title">AlgoDeskを支えるRAGアーキテクチャ — Pinecone + Claude構成の実装</h3>
+            <p class="article-card__excerpt">
+              社内ドキュメントの精度を最大化するためのRAG設計と、ハルシネーション対策のプロンプト工夫を公開します。
+            </p>
+            <div class="tag-row">
+              <span class="mini-tag">#RAG</span>
+              <span class="mini-tag">#LLM</span>
+              <span class="mini-tag">#技術解説</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="article-card" data-category="product" data-tags="update,sso">
+        <a href="#" class="article-card__link">
+          <div class="article-card__media">
+            <div class="image-grid image-grid--multi">
+              <div class="img-box" style="background:linear-gradient(135deg,#00E5FF,#10F0A0);"><span class="img-placeholder">01</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#7C3AED,#00E5FF);"><span class="img-placeholder">02</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#10F0A0,#0A0E1A);"><span class="img-placeholder">03</span></div>
+            </div>
+          </div>
+          <div class="article-card__body">
+            <div class="meta-row">
+              <span class="badge badge--category">Product Update</span>
+              <time datetime="2026-04-20">2026.04.20</time>
+            </div>
+            <h3 class="article-card__title">SSO (SAML/OIDC) 対応リリース — Okta・Entra IDに対応</h3>
+            <p class="article-card__excerpt">
+              スタンダードプラン以上で、主要なIDプロバイダとのSSO連携が可能になりました。設定手順も紹介。
+            </p>
+            <div class="tag-row">
+              <span class="mini-tag">#セキュリティ</span>
+              <span class="mini-tag">#SSO</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="article-card" data-category="culture" data-tags="remote,culture">
+        <a href="#" class="article-card__link">
+          <div class="article-card__media">
+            <div class="image-grid">
+              <div class="img-box" style="background:linear-gradient(135deg,#7C3AED,#10F0A0);"><span class="img-placeholder">CULTURE</span></div>
+            </div>
+          </div>
+          <div class="article-card__body">
+            <div class="meta-row">
+              <span class="badge badge--category">Culture</span>
+              <time datetime="2026-04-15">2026.04.15</time>
+            </div>
+            <h3 class="article-card__title">フルリモート3人組の「会議ゼロ」運用ルール</h3>
+            <p class="article-card__excerpt">
+              なぜ私たちは定例会議を持たないのか。非同期コミュニケーションを成立させる5つの工夫を公開します。
+            </p>
+            <div class="tag-row">
+              <span class="mini-tag">#働き方</span>
+              <span class="mini-tag">#リモート</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="article-card" data-category="member" data-tags="cs,interview">
+        <a href="#" class="article-card__link">
+          <div class="article-card__media">
+            <div class="image-grid image-grid--quad">
+              <div class="img-box" style="background:linear-gradient(135deg,#10F0A0,#00E5FF);"><span class="img-placeholder">01</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#7C3AED,#0A0E1A);"><span class="img-placeholder">02</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#00E5FF,#7C3AED);"><span class="img-placeholder">03</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#0A0E1A,#10F0A0);"><span class="img-placeholder">04</span></div>
+            </div>
+          </div>
+          <div class="article-card__body">
+            <div class="meta-row">
+              <span class="badge badge--category">Member</span>
+              <time datetime="2026-04-08">2026.04.08</time>
+            </div>
+            <h3 class="article-card__title">CS担当が見る「ひとり情シス」のリアルな1日</h3>
+            <p class="article-card__excerpt">
+              お客様の現場で見えてきた、情シス担当者の本当の悩み。CS担当が業務密着して感じたことを綴ります。
+            </p>
+            <div class="tag-row">
+              <span class="mini-tag">#カスタマーサクセス</span>
+              <span class="mini-tag">#現場の声</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="article-card" data-category="event" data-tags="meetup,community">
+        <a href="#" class="article-card__link">
+          <div class="article-card__media">
+            <div class="image-grid image-grid--multi">
+              <div class="img-box" style="background:linear-gradient(135deg,#00E5FF,#0A0E1A);"><span class="img-placeholder">01</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#7C3AED,#10F0A0);"><span class="img-placeholder">02</span></div>
+              <div class="img-box" style="background:linear-gradient(135deg,#10F0A0,#7C3AED);"><span class="img-placeholder">03</span></div>
+            </div>
+          </div>
+          <div class="article-card__body">
+            <div class="meta-row">
+              <span class="badge badge--category">Event</span>
+              <time datetime="2026-04-01">2026.04.01</time>
+            </div>
+            <h3 class="article-card__title">「ひとり情シスMeetup #1」開催レポート</h3>
+            <p class="article-card__excerpt">
+              全国から30名の情シス担当者が集結。LT登壇とパネルディスカッションの様子をダイジェストでお届け。
+            </p>
+            <div class="tag-row">
+              <span class="mini-tag">#Meetup</span>
+              <span class="mini-tag">#コミュニティ</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="emptyState" hidden>
+      <p>該当する記事が見つかりませんでした。</p>
+    </div>
+
+    <!-- Pagination -->
+    <nav class="pagination" aria-label="ページネーション">
+      <button class="page-btn" disabled>← Prev</button>
+      <button class="page-btn is-current">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">Next →</button>
+    </nav>
+  </div>
+</section>
+
+<!-- ===== Newsletter CTA ===== -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-card">
+      <div>
+        <p class="eyebrow">// NEWSLETTER</p>
+        <h2>新着記事を、見逃さない。</h2>
+        <p class="newsletter-lead">月2回、AlgorithMの最新アップデートをメールでお届けします。</p>
+      </div>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('購読ありがとうございます');">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">Subscribe →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-logo">AlgorithM</p>
+        <p class="footer-tagline">Made with algorithms in Tokyo</p>
+      </div>
+      <div>
+        <p class="footer-title">Product</p>
+        <ul><li><a href="algodesk.html">AlgoDesk</a></li><li><a href="#">Pricing</a></li><li><a href="#">Roadmap</a></li></ul>
+      </div>
+      <div>
+        <p class="footer-title">Company</p>
+        <ul><li><a href="company.html">About</a></li><li><a href="members.html">Members</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <p class="footer-title">Resources</p>
+        <ul><li><a href="blog.html">Blog</a></li><li><a href="#">Docs</a></li><li><a href="#">Status</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AlgorithM Inc.</p>
+      <p><span class="status-dot"></span> All Systems Operational</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/blog.js"></script>
+</body>
+</html>
