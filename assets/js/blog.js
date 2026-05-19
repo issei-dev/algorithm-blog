@@ -1,31 +1,29 @@
 // File: assets/js/blog.js
 
 /* =========================================
-   Blog Page Interactions
+   AlgorithM Blog - Interactions
    - カテゴリフィルター
    - キーワード検索
-   - 件数カウント表示
-   - ヘッダースクロール挙動
-   - フェードインアニメーション
+   - ヘッダー / 進捗バー
+   - フェードイン
 ========================================= */
 
 (function () {
   'use strict';
 
-  // ---------- DOM ----------
+  // ---------- 一覧ページ: フィルタリング ----------
   const categoryTags = document.querySelectorAll('#categoryTags .tag');
   const searchInput = document.getElementById('searchInput');
   const articleCards = document.querySelectorAll('#articleGrid .article-card');
   const articleCount = document.getElementById('articleCount');
   const emptyState = document.getElementById('emptyState');
   const articleGrid = document.getElementById('articleGrid');
-  const header = document.getElementById('siteHeader');
 
   let currentCategory = 'all';
   let currentKeyword = '';
 
-  // ---------- フィルタリング処理 ----------
   function applyFilter() {
+    if (!articleCards.length) return;
     let visibleCount = 0;
     const keyword = currentKeyword.toLowerCase().trim();
 
@@ -50,12 +48,7 @@
       }
     });
 
-    // カウント更新
-    if (articleCount) {
-      articleCount.textContent = visibleCount;
-    }
-
-    // 空状態の切り替え
+    if (articleCount) articleCount.textContent = visibleCount;
     if (emptyState && articleGrid) {
       if (visibleCount === 0) {
         emptyState.hidden = false;
@@ -67,7 +60,6 @@
     }
   }
 
-  // ---------- カテゴリタグ ----------
   categoryTags.forEach((tag) => {
     tag.addEventListener('click', () => {
       categoryTags.forEach((t) => t.classList.remove('is-active'));
@@ -77,7 +69,6 @@
     });
   });
 
-  // ---------- 検索入力 ----------
   if (searchInput) {
     let timer = null;
     searchInput.addEventListener('input', (e) => {
@@ -89,12 +80,22 @@
     });
   }
 
-  // ---------- ヘッダースクロール挙動 ----------
+  // ---------- 個別記事: 読了進捗バー ----------
+  const progressBar = document.getElementById('readingProgress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      progressBar.style.width = Math.min(scrolled, 100) + '%';
+    }, { passive: true });
+  }
+
+  // ---------- ヘッダー挙動 ----------
+  const header = document.getElementById('siteHeader');
   let lastScroll = 0;
   window.addEventListener('scroll', () => {
-    const current = window.pageYOffset;
     if (!header) return;
-
+    const current = window.pageYOffset;
     if (current > lastScroll && current > 120) {
       header.style.transform = 'translateY(-100%)';
     } else {
@@ -106,7 +107,9 @@
 
   // ---------- フェードインアニメーション ----------
   if ('IntersectionObserver' in window) {
-    const fadeTargets = document.querySelectorAll('.article-card, .featured-card, .newsletter-card');
+    const fadeTargets = document.querySelectorAll(
+      '.article-card, .featured-card, .newsletter-card, .related-card, .post-body h2, .post-body h3'
+    );
     fadeTargets.forEach((el) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
@@ -126,7 +129,7 @@
     fadeTargets.forEach((el) => io.observe(el));
   }
 
-  // ---------- ナビトグル(モバイル) ----------
+  // ---------- ナビトグル ----------
   const navToggle = document.querySelector('.nav-toggle');
   const globalNav = document.querySelector('.global-nav');
   if (navToggle && globalNav) {
